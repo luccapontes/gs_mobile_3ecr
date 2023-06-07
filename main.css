@@ -171,3 +171,9 @@
         opacity: 0;
     }
 }
+
+.btn_visu {
+    background: #063479;
+    border: 1px solid #063479;
+    color: #fff;
+}

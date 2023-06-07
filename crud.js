@@ -59,7 +59,7 @@ function filtrarPor(filtro, nomeFiltro) {
 
 
 function cadastrar() {
-    const modal = bootstrap.Modal.getInstance(document.querySelector("#cadastrarContaModal"))
+    const modal = bootstrap.Modal.getInstance(document.querySelector("#cadastrarConta"))
     let nome = document.querySelector("#nome").value
     let endereco = document.querySelector("#endereco").value
     let data = document.querySelector("#data").value
@@ -101,7 +101,7 @@ function cadastrar() {
       return
   }
     
-    document.querySelector("#button-cadastrar").setAttribute("data-bs-target", "#cadastrarContaModal")
+    document.querySelector("#button-cadastrar").setAttribute("data-bs-target", "#cadastrarConta")
     toastFunction()
     document.querySelector("#contas").innerHTML += gerarCard(conta)
 

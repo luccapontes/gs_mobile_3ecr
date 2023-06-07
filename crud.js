@@ -62,9 +62,9 @@ function cadastrar() {
     const modal = bootstrap.Modal.getInstance(document.querySelector("#cadastrarConta"))
     let nome = document.querySelector("#nome").value
     let endereco = document.querySelector("#endereco").value
-    let data = document.querySelector("#data").value
+    let data = document.querySelector("#mes").value
     let litros = document.querySelector("#consumo").value
-    let tipoUsuario = document.querySelector("#tipoUsuario").value
+    let mes = document.querySelector("#mes").value
     let preco = document.querySelector("#preco").value
     let observacoes = document.querySelector("#observacoes").value
 
@@ -74,7 +74,7 @@ function cadastrar() {
         endereco: endereco,
         data: data,
         litros: litros,
-        tipoUsuario: tipoUsuario,
+        mes: mes,
         preco: preco,
         observacoes: observacoes,
         paga: false
@@ -89,7 +89,7 @@ function cadastrar() {
         document.querySelector("#endereco").classList.add("is-invalid")
       }
       if (conta.data == "") {
-        document.querySelector("#data").classList.add("is-invalid")
+        document.querySelector("#mes").classList.add("is-invalid")
       }
       if (conta.litros == "") {
         document.querySelector("#consumo").classList.add("is-invalid")
@@ -108,7 +108,7 @@ function cadastrar() {
     
     zerarInput(document.querySelector("#nome"))
     zerarInput(document.querySelector("#endereco"))
-    zerarInput(document.querySelector("#data"))
+    zerarInput(document.querySelector("#mes"))
     zerarInput(document.querySelector("#preco"))
     zerarInput(document.querySelector("#consumo"))
 
@@ -174,26 +174,17 @@ function formatarPreco(input) {
 }
 
 function gerarCard(conta) {
-  dataAntiga = conta.data
-
-  var partes = dataAntiga.split('-');
-  var ano = partes[0];
-  var dia = partes[1];
-  var mes = partes[2];
-
-  dataNova = String(dia + '/' + mes + '/' + ano)
-
     return `<div class="col-lg-3 col-md-6 col-12">
     <div class="card">
       <div class="card-header">conta em nome de ${conta.nome}</div>
       <div class="card-body">
         <p class="card-text">Endereço: ${conta.endereco}</p>
-        <p class="card-text">Data da conta: ${dataNova ? dataNova : "Sem data"}</p>
+        <p class="card-text">Mês conta: ${conta.mes}</p>
         <p class="card-text">Consumo de água: ${conta.litros} Litros</p>
         <p class="card-text">Preço R$${conta.preco}</span></p>
         <p class="card-text">Observações: ${conta.observacoes}</p>
         <p>
-          <span class="badge text-bg-warning">${conta.tipoUsuario}</span>
+          <span class="badge text-bg-warning">${conta.mes}</span>
         </p>
         <a onclick="pagar(${conta.id})" class="btn btn-success ${conta.paga ? "disabled" : ""}">
           <i class="bi bi-check-lg"></i>
@@ -221,11 +212,20 @@ document.querySelector('#btnSwitch').addEventListener('click',()=>{
 document.querySelector('#button-consumo').addEventListener('click', () => {
   var totalLitros = 0;
   var totalGasto = 0;
+  var arr = []
+
   lista_conta.forEach(conta => {
+    arr.push(String(conta.mes))
     totalLitros = parseInt(conta.litros) + parseInt(totalLitros)
     totalGasto = parseInt(conta.preco) + parseInt(totalGasto)
   })
-  document.querySelector('#totalLitros').textContent = "Total de Litros: " + totalLitros
+
+  totalMes = arr
+  console.log(arr)
+
+  console.log(lista_conta)
+  document.querySelector('#totalMes').textContent = "Mês de consumo: " + totalMes
+  document.querySelector('#totalGasto').textContent = "Total de gastos: R$ " + totalGasto
   document.querySelector('#totalGasto').textContent = "Total de gastos: R$ " + totalGasto
 })
 

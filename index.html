@@ -48,7 +48,7 @@
             </li>
           </ul>
           <div class="btn-group">
-            <button id="nomeFiltro" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <button id="nomeFiltro" type="button" class="btn btn-success dropdown-toggle mr-10" data-bs-toggle="dropdown" aria-expanded="false">
               Filtrar
             </button>
             <ul class="dropdown-menu">
@@ -79,7 +79,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5"> Cadastrar conta </h1>
+            <h1 class="modal-title fs-5">Cadastro de conta</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -90,19 +90,27 @@
               <div class="mb-3">
                 <input id="endereco" type="text" class="form-control" placeholder="Endereço" aria-label="Descrição" />
               </div>
-              <div class="mb-3">
-                <input id="data" type="date" class="form-control" />
+              
+              <div class="input-group col-6 mb-3">
+                <select id="mes" class="form-select" aria-label="mes">
+                  <option selected>Mês</option>
+                  <option>Janeiro</option>
+                  <option>Fevereiro</option>
+                  <option>Março</option>
+                  <option>Abril</option>
+                  <option>Maio</option>
+                  <option>Junho</option>
+                  <option>Julho</option>
+                  <option>Agosto</option>
+                  <option>Setembro</option>
+                  <option>Outubro</option>
+                  <option>Novembro</option>
+                  <option>Dezembro</option>
+                </select>
               </div>
               <div class="input-group col-6 mb-3">
                 <span class="input-group-text">Litros</span>
                 <input id="consumo" type="number" class="form-control" placeholder="Consumo de água" aria-label="consumo" min="1"/>
-              </div>
-              <div class="input-group col-6 mb-3">
-                <select id="tipoUsuario" class="form-select" aria-label="tipoUsuario">
-                  <option selected>Tipo de usuário</option>
-                  <option>Doméstico</option>
-                  <option>Coporativo</option>
-                </select>
               </div>
               <div class="input-group col-6 mb-3">
                 <span class="input-group-text">R$</span>
@@ -126,12 +134,13 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5"> Análise de consumo </h1>
+            <h1 class="modal-title fs-5"> Visualização dos Gastos </h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="row">
               <div class="mb-3">
+                <p id="totalMes">Mês de consumo: </p>
                 <p id="totalLitros">Total de litros: </p>
                 <p id="totalGasto">Total de gastos: R$</p>
               </div>

@@ -220,12 +220,13 @@ document.querySelector('#button-consumo').addEventListener('click', () => {
     totalGasto = parseInt(conta.preco) + parseInt(totalGasto)
   })
 
+  console.log(totalLitros)
+
   totalMes = arr
-  console.log(arr)
 
   console.log(lista_conta)
   document.querySelector('#totalMes').textContent = "Mês de consumo: " + totalMes
-  document.querySelector('#totalGasto').textContent = "Total de gastos: R$ " + totalGasto
+  document.querySelector('#totalLitros').textContent = "Total de litros: " + totalLitros
   document.querySelector('#totalGasto').textContent = "Total de gastos: R$ " + totalGasto
 })
 
